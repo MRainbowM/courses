@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Course, Chapter, Lesson, LessonItem
+
+from .models import Course, Chapter, Lesson
 
 
 @admin.register(Course)
@@ -26,20 +27,9 @@ class ChapterAdmin(admin.ModelAdmin):
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
     list_display = ('title', 'chapter', 'sort')
-    fields = ('title', 'chapter')
+    fields = ('title', 'chapter', 'text')
     list_per_page = 40
     empty_value_display = '-'
     list_filter = ('chapter',)
     search_fields = ('title',)
     sortable_by = ('title',)
-
-
-@admin.register(LessonItem)
-class LessonItemAdmin(admin.ModelAdmin):
-    list_display = ('lesson',)
-    fields = ('lesson', 'text')
-    list_per_page = 40
-    empty_value_display = '-'
-
-    search_fields = ('lesson',)
-    sortable_by = ('lesson',)

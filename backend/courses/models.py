@@ -44,6 +44,7 @@ class Lesson(BaseTimestampedModel):
         verbose_name='Раздел',
     )
     sort = models.IntegerField(verbose_name='Сортировка', null=True)
+    text = RichTextField('Текст', default='', blank=True)
 
     def __str__(self):
         return self.title
@@ -52,8 +53,3 @@ class Lesson(BaseTimestampedModel):
         verbose_name = 'Урок'
         verbose_name_plural = 'Уроки'
         ordering = ['sort']
-
-
-class LessonItem(BaseTimestampedModel):
-    lesson = models.ForeignKey(Lesson, models.CASCADE, 'lesson_items', verbose_name='Урок')
-    text = RichTextField("Текст", default='', blank=True)
