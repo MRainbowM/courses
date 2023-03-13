@@ -1,5 +1,5 @@
 from basis.model_mixin import BaseTimestampedModel
-from ckeditor.fields import RichTextField
+from django_ckeditor_5.fields import CKEditor5Field
 from django.db import models
 
 
@@ -44,7 +44,7 @@ class Lesson(BaseTimestampedModel):
         verbose_name='Раздел',
     )
     sort = models.IntegerField(verbose_name='Сортировка', null=True)
-    text = RichTextField('Текст', default='', blank=True)
+    text = CKEditor5Field('Текст', default='', blank=True)
 
     def __str__(self):
         return self.title
