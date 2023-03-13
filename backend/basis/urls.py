@@ -5,15 +5,17 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='/index.html'), name='index'),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
 
     path('courses/', include('courses.urls')),
     path('admin/', admin.site.urls),
 ]
 
 urlpatterns += [
-    path("ckeditor5/",
-         include('django_ckeditor_5.urls'),
-         name="ck_editor_5_upload_file"),
+    path(
+        "ckeditor5/",
+        include('django_ckeditor_5.urls'),
+        name="ck_editor_5_upload_file"
+    ),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
