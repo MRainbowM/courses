@@ -137,3 +137,6 @@ GitHub.sublime-settings
 
 # Node
 node_modules
+
+# Parcel
+.parcel-cache
