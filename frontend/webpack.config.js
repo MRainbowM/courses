@@ -8,10 +8,10 @@ module.exports = {
   entry: './src/index.js',
 
   output: {
-    path: path.resolve('../backend/static'),
+    path: path.resolve('../backend/static/public'),
     filename: "[name].js",
     clean: true,
-    publicPath: isDevelopment ? 'http://localhost:9091/' : '/static',
+    publicPath: isDevelopment ? 'http://localhost:9091/' : '/static/public',
   },
 
   module: {
