@@ -1,2 +1,5 @@
+Django==4.1.7
 django-ckeditor==6.5.1
-psycopg2-binary==2.8.6
+psycopg2-binary==2.9.5
+environs==9.5.0
+django-ckeditor-5==0.2.4
