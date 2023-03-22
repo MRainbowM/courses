@@ -3,3 +3,4 @@ django-ckeditor==6.5.1
 psycopg2-binary==2.9.5
 environs==9.5.0
 django-ckeditor-5==0.2.4
+djangorestframework==3.14.0
