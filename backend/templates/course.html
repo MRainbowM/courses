@@ -7,24 +7,94 @@
 
 {% block content %}
 
-<div class="content">
-    <div class="course_header">
-        <div class="course_header__description">
-            <div class="course_header__description__text">
-                <span>Курс</span>
-                <span class="course_header__description__title">Денежный поток</span>
-            </div>
-
+<div class="course_header">
+    <div class="course_header__description">
+        <div class="course_header__description__text">
+            <span>Курс</span>
+            <span class="course_header__description__title">Денежный поток</span>
         </div>
-        <div class="course_header__progress">
-            <span>60%</span>
-            <div class="course_header__progress__wrapper">
-                <div class="course_header__progress__line"></div>
-                <div class="course_header__progress__value"></div>
-            </div>
+
+    </div>
+    <div class="progress">
+        <span>60%</span>
+        <div class="progress__wrapper">
+            <div class="progress__wrapper__line"></div>
+            <div class="progress__wrapper__value" style="transform: translateX(-40%)"></div>
         </div>
     </div>
 </div>
 
+<div class="course_chapters">
+    <div class="course_chapters__card">
+        <div class="course_chapters__card__title">Введение</div>
+        <div class="progress">
+            <span>0%</span>
+            <div class="course_chapters__card__content">
+                <span>1 видео</span>
+            </div>
+            <div class="progress__wrapper">
+                <div class="progress__wrapper__line"></div>
+                <div class="progress__wrapper__value" style="transform: translateX(-100%)"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="course_chapters__card">
+        <div class="course_chapters__card__title">Хочу знать себя лучше</div>
+        <div class="progress">
+            <span>50%</span>
+            <div class="course_chapters__card__content">
+                <span>4 видео</span>
+            </div>
+            <div class="progress__wrapper">
+                <div class="progress__wrapper__line"></div>
+                <div class="progress__wrapper__value" style="transform: translateX(-50%)"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="course_chapters__card">
+        <div class="course_chapters__card__title">Блоки и установки</div>
+        <div class="progress">
+            <span>10%</span>
+            <div class="course_chapters__card__content">
+                <span>6 видео</span>
+            </div>
+            <div class="progress__wrapper">
+                <div class="progress__wrapper__line"></div>
+                <div class="progress__wrapper__value" style="transform: translateX(-90%)"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="course_chapters__card">
+        <div class="course_chapters__card__title">Выявление денежных блоков</div>
+        <div class="progress">
+            <span>100%</span>
+            <div class="course_chapters__card__content">
+                <span>3 видео</span>
+            </div>
+            <div class="progress__wrapper">
+                <div class="progress__wrapper__line"></div>
+                <div class="progress__wrapper__value" style="transform: translateX(-0%)"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="course_chapters__card">
+        <div class="course_chapters__card__title">Прокрастинация</div>
+        <div class="progress">
+            <span>44%</span>
+            <div class="course_chapters__card__content">
+                <span>5 видео</span>
+            </div>
+            <div class="progress__wrapper">
+                <div class="progress__wrapper__line"></div>
+                <div class="progress__wrapper__value" style="transform: translateX(-55%)"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 {% endblock %}
