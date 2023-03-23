@@ -19,13 +19,15 @@
 </div>
 
 <div class="course_chapters">
-
     {% for chapter in chapters %}
-    <div class="course_chapters__card">
+    <a class="course_chapters__card" href="{% url 'chapter_template' chapter.id %}">
         <div class="course_chapters__card__title">{{ chapter.title }}</div>
-        
         {% include 'components/progress.html' %}
-    </div>
+
+        <div class="course_chapters__card__content">
+            <span>1 видео</span>
+        </div>
+    </a>
     {% endfor %}
 
 </div>
