@@ -16,7 +16,7 @@ class CourseAdmin(admin.ModelAdmin):
 @admin.register(Chapter)
 class ChapterAdmin(admin.ModelAdmin):
     list_display = ('title', 'course', 'sort')
-    fields = ('title', 'course')
+    fields = ('title', 'course', 'sort')
     list_per_page = 40
     empty_value_display = '-'
     list_filter = ('course',)

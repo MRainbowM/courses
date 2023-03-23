@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from rest_framework.serializers import (
     Serializer,
     IntegerField,
@@ -14,8 +15,8 @@ class CourseReadOnlySerializer(Serializer):
 
     chapters = SerializerMethodField(read_only=True)
 
-    def get_chapters(self, obj) -> list:
-        сhapters = Chapter.objects.filter(course_id=obj.id).order_by('sort').values(
+    def get_chapters(self, obj) -> QuerySet:
+        chapters = Chapter.objects.filter(course_id=obj.id).order_by('sort').values(
             'id', 'title'
         )
-        return сhapters
+        return chapters
