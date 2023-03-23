@@ -3,9 +3,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+api_url = 'api'
+
 urlpatterns = [
     path('', include('frontend.urls')),
-    path('courses/', include('courses.urls')),
+    path(f'{api_url}/courses/', include('courses.urls')),
     path('admin/', admin.site.urls),
 ]
 

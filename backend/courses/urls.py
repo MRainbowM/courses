@@ -1,7 +1,7 @@
 from django.urls import path
 
-from . import views
+from .views import CourseRetrieveAPI
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('<int:pk>', CourseRetrieveAPI.as_view(), name='retrieve_course_api'),
 ]

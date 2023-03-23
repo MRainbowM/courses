@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from rest_framework.generics import RetrieveAPIView
+
+from courses.models import Course
+from courses.serializers import CourseReadOnlySerializer
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+class CourseRetrieveAPI(RetrieveAPIView):
+    queryset = Course.objects.all()
+    serializer_class = CourseReadOnlySerializer
