@@ -1,0 +1,28 @@
+.progress
+    width: 100%
+    display: flex
+    flex-direction: column
+
+    &__wrapper
+        position: relative
+        z-index: 1
+        width: 100%
+        border-radius: 10px
+        overflow: hidden
+        height: 10px
+        margin-top: 5px
+
+        &__line
+            position: absolute
+            width: 100%
+            height: 10px
+            background-color: $white
+            border-radius: 10px
+
+        &__value
+            position: absolute
+            width: 100%
+            height: 10px
+            border-radius: 10px
+            z-index: 2
+            background-color: $purple-dark
