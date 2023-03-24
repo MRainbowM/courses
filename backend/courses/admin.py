@@ -26,10 +26,10 @@ class ChapterAdmin(admin.ModelAdmin):
 
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
-    list_display = ('title', 'chapter', 'sort')
-    fields = ('title', 'chapter', 'text')
+    list_display = ('title', 'module', 'sort')
+    fields = ('title', 'module', 'text')
     list_per_page = 40
     empty_value_display = '-'
-    list_filter = ('chapter',)
+    list_filter = ('module',)
     search_fields = ('title',)
     sortable_by = ('title',)

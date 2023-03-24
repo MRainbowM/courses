@@ -18,13 +18,13 @@
     {% include 'components/progress.html' %}
 </div>
 
-<div class="course_chapters">
-    {% for chapter in chapters %}
-    <a class="course_chapters__card" href="{% url 'chapter_template' chapter.id %}">
-        <div class="course_chapters__card__title">{{ chapter.title }}</div>
+<div class="course_modules">
+    {% for module in modules %}
+    <a class="course_modules__card" href="{% url 'module_template' module.id %}">
+        <div class="course_modules__card__title">{{ module.title }}</div>
         {% include 'components/progress.html' %}
 
-        <div class="course_chapters__card__content">
+        <div class="course_modules__card__content">
             <span>1 видео</span>
         </div>
     </a>

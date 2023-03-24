@@ -37,10 +37,10 @@ class Module(BaseTimestampedModel):
 
 class Lesson(BaseTimestampedModel):
     title = models.CharField('Название', max_length=256)
-    chapter = models.ForeignKey(
+    module = models.ForeignKey(
         Module,
         on_delete=models.CASCADE,
-        related_name='chapter',
+        related_name='module',
         verbose_name='Раздел',
     )
     sort = models.IntegerField(verbose_name='Сортировка', null=True)

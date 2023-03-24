@@ -13,10 +13,10 @@ class CourseReadOnlySerializer(Serializer):
     id = IntegerField(read_only=True)
     title = CharField(read_only=True)
 
-    chapters = SerializerMethodField(read_only=True)
+    modules = SerializerMethodField(read_only=True)
 
-    def get_chapters(self, obj) -> QuerySet:
-        chapters = Module.objects.filter(course_id=obj.id).order_by('sort').values(
+    def get_modules(self, obj) -> QuerySet:
+        modules = Module.objects.filter(course_id=obj.id).order_by('sort').values(
             'id', 'title'
         )
-        return chapters
+        return modules

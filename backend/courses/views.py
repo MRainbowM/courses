@@ -27,16 +27,16 @@ class CourseTemplateView(TemplateView):
 
 
 class ChapterTemplateView(TemplateView):
-    template_name = 'chapter.html'
+    template_name = 'module.html'
 
     def get(self, request, *args, **kwargs):
-        chapter_id = kwargs['pk']
-        chapter = Module.objects.get(id=chapter_id)
+        module_id = kwargs['pk']
+        module = Module.objects.get(id=module_id)
 
-        chapter = ModuleReadOnlySerializer(instance=chapter).data
+        module = ModuleReadOnlySerializer(instance=module).data
 
         return render(
             request=request,
             template_name=self.template_name,
-            context=chapter
+            context=module
         )
