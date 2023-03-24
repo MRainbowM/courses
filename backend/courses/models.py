@@ -30,8 +30,8 @@ class Module(BaseTimestampedModel):
         return self.title
 
     class Meta:
-        verbose_name = 'Раздел'
-        verbose_name_plural = 'Разделы'
+        verbose_name = 'Модуль'
+        verbose_name_plural = 'Модули'
         ordering = ['sort']
 
 
@@ -41,7 +41,7 @@ class Lesson(BaseTimestampedModel):
         Module,
         on_delete=models.CASCADE,
         related_name='module',
-        verbose_name='Раздел',
+        verbose_name='Модуль',
     )
     sort = models.IntegerField(verbose_name='Сортировка', null=True)
     text = CKEditor5Field('Текст', default='', blank=True)
