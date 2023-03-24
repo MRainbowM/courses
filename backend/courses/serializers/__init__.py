@@ -1,2 +1,2 @@
-from .chapter_serializer import ChapterReadOnlySerializer
+from .module_serializer import ModuleReadOnlySerializer
 from .course_serializer import CourseReadOnlySerializer

@@ -16,7 +16,7 @@ class Course(BaseTimestampedModel):
         ordering = ['sort']
 
 
-class Chapter(BaseTimestampedModel):
+class Module(BaseTimestampedModel):
     title = models.CharField('Название', max_length=256)
     course = models.ForeignKey(
         Course,
@@ -38,7 +38,7 @@ class Chapter(BaseTimestampedModel):
 class Lesson(BaseTimestampedModel):
     title = models.CharField('Название', max_length=256)
     chapter = models.ForeignKey(
-        Chapter,
+        Module,
         on_delete=models.CASCADE,
         related_name='chapter',
         verbose_name='Раздел',

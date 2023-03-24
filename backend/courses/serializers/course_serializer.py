@@ -6,7 +6,7 @@ from rest_framework.serializers import (
     SerializerMethodField
 )
 
-from courses.models import Chapter
+from courses.models import Module
 
 
 class CourseReadOnlySerializer(Serializer):
@@ -16,7 +16,7 @@ class CourseReadOnlySerializer(Serializer):
     chapters = SerializerMethodField(read_only=True)
 
     def get_chapters(self, obj) -> QuerySet:
-        chapters = Chapter.objects.filter(course_id=obj.id).order_by('sort').values(
+        chapters = Module.objects.filter(course_id=obj.id).order_by('sort').values(
             'id', 'title'
         )
         return chapters

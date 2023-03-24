@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Course, Chapter, Lesson
+from .models import Course, Module, Lesson
 
 
 @admin.register(Course)
@@ -13,7 +13,7 @@ class CourseAdmin(admin.ModelAdmin):
     sortable_by = ('title',)
 
 
-@admin.register(Chapter)
+@admin.register(Module)
 class ChapterAdmin(admin.ModelAdmin):
     list_display = ('title', 'course', 'sort')
     fields = ('title', 'course', 'sort')

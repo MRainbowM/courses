@@ -9,7 +9,7 @@ from rest_framework.serializers import (
 from courses.models import Course
 
 
-class ChapterReadOnlySerializer(Serializer):
+class ModuleReadOnlySerializer(Serializer):
     id = IntegerField(read_only=True)
     title = CharField(read_only=True)
     # course_id = IntegerField(read_only=True)
