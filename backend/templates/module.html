@@ -14,22 +14,17 @@
     <div class="module_header__title">
         <h1>{{ title }}</h1>
     </div>
-
-    {% include 'components/progress.html' %}
 </div>
 
 <div class="module_lessons">
     <div class="module_lessons__list">
+        {% for lesson in lessons %}
         <div class="module_lessons__list__item">
-
+            {{ lesson.title }}
         </div>
-
+        {% endfor %}
     </div>
-    <div class="module_lessons__content">
-        
-    </div>
-
-
+    <div class="module_lessons__content"></div>
 </div>
 
 {% endblock %}

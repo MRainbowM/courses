@@ -26,7 +26,7 @@ class CourseTemplateView(TemplateView):
         )
 
 
-class ChapterTemplateView(TemplateView):
+class ModuleTemplateView(TemplateView):
     template_name = 'module.html'
 
     def get(self, request, *args, **kwargs):
