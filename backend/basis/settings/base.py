@@ -134,7 +134,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 if DEBUG:
-    STATIC_ROOT = 'http://127.0.0.1:7777/'
+    STATIC_ROOT = '/static/'
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Default primary key field type

@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from rest_framework.generics import RetrieveAPIView
 
-from courses.models import Course, Module
-from courses.serializers import CourseReadOnlySerializer, ModuleReadOnlySerializer
+from courses.models import Course, Module, Lesson
+from courses.serializers import CourseReadOnlySerializer, ModuleReadOnlySerializer, LessonReadOnlySerializer
 
 
 class CourseRetrieveAPI(RetrieveAPIView):
@@ -31,12 +31,27 @@ class ModuleTemplateView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         module_id = kwargs['pk']
+        lesson_id = request.GET.get('lesson_id', None)
+
         module = Module.objects.get(id=module_id)
 
-        module = ModuleReadOnlySerializer(instance=module).data
+        if lesson_id is None:
+            lesson = Lesson.objects.filter(
+                module_id=module_id
+            ).order_by('sort').first()
+        else:
+            lesson = Lesson.objects.filter(
+                module_id=module_id,
+                id=lesson_id
+            ).first()
+
+        # TODO: return 404 if lesson is None
 
         return render(
             request=request,
             template_name=self.template_name,
-            context=module
+            context={
+                'module': ModuleReadOnlySerializer(instance=module).data,
+                'current_lesson': LessonReadOnlySerializer(instance=lesson).data,
+            }
         )
