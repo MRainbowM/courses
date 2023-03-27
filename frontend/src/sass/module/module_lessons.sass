@@ -6,16 +6,18 @@
     &__list
         display: flex
         flex-direction: column
+        min-width: 300px
         width: 300px
         border-right: 2px solid $purple
-        padding: 20px
+        padding: 20px 20px 20px 0
 
         &__item
             width: 100%
-            margin-bottom: 10px
+            padding: 7px 15px
 
             a
                 cursor: pointer
+                font-size: 18px
 
                 &:hover
                     color: $purple-dark
@@ -23,19 +25,20 @@
         &__item.selected
             background-color: $purple
             border-radius: 10px
-            padding: 7px 15px
-            margin-left: -10px
 
             a
                 &:hover
                     color: black
 
-        &__item:last-child
-            margin-bottom: 0
-
     &__content
         width: 100%
-        padding: 20px
+        padding: 20px 20px 20px 70px
+
+        @media (max-width: 700px)
+            padding: 20px 20px 20px 50px
+
+        @media (max-width: 700px)
+            padding: 20px
 
         p
             margin-bottom: 10px
