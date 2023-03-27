@@ -18,7 +18,17 @@
                 cursor: pointer
 
                 &:hover
-                    font-weight: bold
+                    color: $purple-dark
+
+        &__item.selected
+            background-color: $purple
+            border-radius: 10px
+            padding: 7px 15px
+            margin-left: -10px
+
+            a
+                &:hover
+                    color: black
 
         &__item:last-child
             margin-bottom: 0

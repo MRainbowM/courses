@@ -19,7 +19,7 @@
 <div class="module_lessons">
     <div class="module_lessons__list">
         {% for lesson in module.lessons %}
-        <div class="module_lessons__list__item">
+        <div class="module_lessons__list__item  {% if lesson.id == current_lesson.id %}selected {% endif %}">
             <a href="?lesson_id={{ lesson.id }}">{{ lesson.title }}</a>
         </div>
         {% endfor %}
