@@ -1,7 +1,9 @@
 .module_lessons
     display: flex
+    position: relative
     margin-top: 30px
     width: 100%
+    height: 100%
 
     &__list
         display: flex
@@ -34,12 +36,22 @@
         width: 100%
         padding: 20px 20px 20px 70px
 
-        @media (max-width: 700px)
+        @media (max-width: 1050px)
             padding: 20px 20px 20px 50px
 
-        @media (max-width: 700px)
+        @media (max-width: 950px)
             padding: 20px
 
         p
             margin-bottom: 10px
             font-size: 17px
+
+@media (max-width: 800px)
+    .module_lessons
+
+        &__list.show
+            position: absolute
+            width: 100%
+            height: 100%
+            z-index: 100
+            background-color: $bgc-color
