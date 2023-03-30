@@ -9,3 +9,4 @@ class LessonReadOnlySerializer(Serializer):
     id = IntegerField(read_only=True)
     title = CharField(read_only=True)
     text = CharField(read_only=True)
+    video_url = CharField(read_only=True)

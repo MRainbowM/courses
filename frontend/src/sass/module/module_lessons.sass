@@ -2,16 +2,17 @@
     display: flex
     position: relative
     margin-top: 30px
+    margin-bottom: 30px
     width: 100%
     height: 100%
 
     &__list
         display: flex
         flex-direction: column
-        min-width: 300px
-        width: 300px
+        min-width: 250px
+        width: 250px
         border-right: 2px solid $purple
-        padding: 20px 20px 20px 0
+        padding-right: 20px
 
         &__item
             width: 100%
@@ -34,17 +35,35 @@
 
     &__content
         width: 100%
-        padding: 20px 20px 20px 70px
-
-        @media (max-width: 1050px)
-            padding: 20px 20px 20px 50px
-
-        @media (max-width: 950px)
-            padding: 20px
+        padding-left: 20px
 
         p
             margin-bottom: 10px
             font-size: 17px
+
+            span
+                line-height: 1.5
+
+        &__video
+            width: 100%
+            margin-bottom: 50px
+
+            position: relative
+            padding-bottom: 56.25% /* задаёт высоту контейнера для 16:9 (если 4:3 — поставьте 75%) */
+            height: 0
+            overflow: hidden
+
+            iframe
+                border: none
+                border-radius: 15px
+
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                border-width: 0
+                outline-width: 0
 
 @media (max-width: 800px)
     .module_lessons
