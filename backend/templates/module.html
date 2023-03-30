@@ -16,6 +16,15 @@
     </div>
 </div>
 
+<div class="module__menu">
+    <span>Все уроки</span>
+
+    <div class="module__menu__btn" onclick="clickModuleMenu(this)">
+        <div class="module__menu__btn__line_1"></div>
+        <div class="module__menu__btn__line_2"></div>
+    </div>
+</div>
+
 <div class="module_lessons">
     <div class="module_lessons__list show">
         {% for lesson in module.lessons %}
@@ -27,8 +36,7 @@
     <div class="module_lessons__content">
         {% if current_lesson.video_url %}
         <div class="module_lessons__content__video">
-            <iframe 
-                src="{{ current_lesson.video_url}}">
+            <iframe src="{{ current_lesson.video_url}}">
             </iframe>
         </div>
         {% endif %}
