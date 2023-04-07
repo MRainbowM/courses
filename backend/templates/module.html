@@ -16,13 +16,21 @@
     </div>
 </div>
 
-<div class="module__menu">
-    <span>Все уроки</span>
+<div id="moduleMenu" class="module__menu">
+    <div id="moduleMenuPreview" class="module__menu__preview">
+        <span>Все уроки</span>
 
-    <div id="moduleMenuBtn" class="module__menu__btn">
-        <div class="module__menu__btn__line_1"></div>
-        <div class="module__menu__btn__line_2"></div>
+        <div class="module__menu__preview__btn">
+            <div class="module__menu__preview__btn__line_1"></div>
+            <div class="module__menu__preview__btn__line_2"></div>
+        </div>
     </div>
+
+    {% for lesson in module.lessons %}
+    <div class="module__menu__row">
+        <a href="?lesson_id={{ lesson.id }}">{{ lesson.title }}</a>
+    </div>
+    {% endfor %}
 </div>
 
 <div class="module_lessons">
