@@ -66,13 +66,11 @@ class ModuleTemplateView(TemplateView):
             print()
             # TODO: return 404 if lesson is None
 
-        current_lesson = LessonReadOnlySerializer(instance=current_lesson).data
-        print(current_lesson)
         return render(
             request=request,
             template_name=self.template_name,
             context={
                 'module': ModuleReadOnlySerializer(instance=module).data,
-                'current_lesson': current_lesson,
+                'current_lesson': LessonReadOnlySerializer(instance=current_lesson).data,
             }
         )

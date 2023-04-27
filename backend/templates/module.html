@@ -17,13 +17,15 @@
     </a>
 
     {% if current_lesson.prev_id != None %}
-    <a href="?lesson_id={{ current_lesson.prev_id }}">
-        back
+    <a href="?lesson_id={{ current_lesson.prev_id }}" class="navigation__prev">
+        <div class="navigation__prev__line_1"></div>
+        <div class="navigation__prev__line_2"></div>
     </a>
     {% endif %}
     {% if current_lesson.next_id != None %}
-    <a href="?lesson_id={{ current_lesson.next_id }}">
-        next
+    <a href="?lesson_id={{ current_lesson.next_id }}" class="navigation__next">
+        <div class="navigation__next__line_1"></div>
+        <div class="navigation__next__line_2"></div>
     </a>
     {% endif %}
 
