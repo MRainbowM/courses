@@ -1,0 +1,32 @@
+.navigation
+    display: flex
+    width: 100%
+
+    &__back
+        display: flex
+        background-color: $gray-light
+        padding: 10px 15px
+        font-size: 17px
+        border-radius: 29px
+
+        &__arrow
+            display: flex
+            flex-direction: column
+            padding-top: 6px
+            margin-right: 5px
+
+            &__line_1, &__line_2
+                background-color: black
+                height: 1px
+                width: 7px
+
+            &__line_1
+                transform: rotate(-45deg)
+
+            &__line_2
+                transform: rotate(45deg)
+                margin-top: 4px
+
+        &:hover
+            background-color: $gray-light-hover
+            cursor: pointer

@@ -6,6 +6,17 @@
 
 
 {% block content %}
+
+<div class="navigation">
+    <a href="/courses/{{ module.course.id }}" class="navigation__back">
+        <div class="navigation__back__arrow">
+            <div class="navigation__back__arrow__line_1"></div>
+            <div class="navigation__back__arrow__line_2"></div>
+        </div>
+        <span>Назад</span>
+    </a>
+</div>
+
 <div class="module_header">
     <div class="module_header__course">
         <!--        <span>Курс</span>-->

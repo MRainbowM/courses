@@ -1,0 +1,59 @@
+.module__menu
+    display: flex
+    flex-direction: column
+    width: 100%
+    font-size: 17px
+    background-color: $gray-light
+    border-radius: $border-radius
+    padding: 10px 15px
+    margin-top: 10px
+    overflow: hidden
+    transition: height .1s
+    height: 45px
+
+    &__preview
+        display: flex
+        width: 100%
+        margin-bottom: 10px
+        cursor: pointer
+
+        &__btn
+            display: flex
+            width: 21px
+            margin-left: auto
+            padding-top: 12px
+
+            &__line_1, &__line_2
+                background-color: black
+                height: 2px
+                width: 13px
+
+            &__line_1
+                transform: rotate(45deg)
+
+            &__line_2
+                transform: rotate(-45deg)
+                margin-left: -5px
+
+    &__row
+        display: flex
+        margin-bottom: 5px
+
+        a
+            width: 100%
+
+            &:hover
+                color: $purple-dark
+
+.module__menu.show
+    height: 100%
+
+    .module__menu__preview__btn__line_1
+        transform: rotate(-45deg)
+
+    .module__menu__preview__btn__line_2
+        transform: rotate(45deg)
+
+@media (min-width: 800px)
+    .module__menu
+        display: none
