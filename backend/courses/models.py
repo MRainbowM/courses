@@ -27,7 +27,7 @@ class Module(BaseTimestampedModel):
     sort = models.IntegerField(verbose_name='Сортировка', null=True)
 
     def __str__(self):
-        return self.title
+        return f'{self.course.title} - {self.title}'
 
     class Meta:
         verbose_name = 'Модуль'
@@ -48,7 +48,7 @@ class Lesson(BaseTimestampedModel):
     video_url = models.URLField('Видео URL', blank=True)
     
     def __str__(self):
-        return self.title
+        return f'{self.title} ({self.module.course.title} - {self.module.title})'
 
     class Meta:
         verbose_name = 'Урок'
