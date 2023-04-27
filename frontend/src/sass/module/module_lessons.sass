@@ -17,10 +17,12 @@
 
 
         &__item
+            display: flex
             width: 100%
             padding: 7px 15px
 
             a
+                width: 100%
                 cursor: pointer
                 font-size: 17px
 
@@ -68,7 +70,7 @@
                 border-width: 0
                 outline-width: 0
 
-@media (max-width: 800px)
+@media (max-width: 799px)
     .module_lessons
 
         &__list
@@ -81,6 +83,8 @@
             padding-right: 0
             font-size: 17px
             height: 0
+
+            display: none
 
         &__list.show
 
