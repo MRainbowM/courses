@@ -15,6 +15,18 @@
         </div>
         <span>Назад</span>
     </a>
+
+    {% if current_lesson.prev_id != None %}
+    <a href="?lesson_id={{ current_lesson.prev_id }}">
+        back
+    </a>
+    {% endif %}
+    {% if current_lesson.next_id != None %}
+    <a href="?lesson_id={{ current_lesson.next_id }}">
+        next
+    </a>
+    {% endif %}
+
 </div>
 
 <div class="module_header">

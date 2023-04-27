@@ -1,3 +1,5 @@
+from django.db.models import F, Window
+from django.db.models.functions import Lead, Lag
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from rest_framework.generics import RetrieveAPIView
@@ -31,27 +33,46 @@ class ModuleTemplateView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         module_id = kwargs['pk']
-        lesson_id = request.GET.get('lesson_id', None)
+        lesson_id = int(request.GET.get('lesson_id', None))
+        # TODO: validate params
 
         module = Module.objects.get(id=module_id)
 
+        lesson_qs = Lesson.objects.filter(
+            module_id=module_id
+        ).annotate(
+            next_id=Window(
+                expression=Lead('id'),
+                order_by=F('sort').asc()
+            ),
+            prev_id=Window(
+                expression=Lag('id'),
+                order_by=F('sort').asc(),
+            ),
+        )
+        current_lesson = None
+
         if lesson_id is None:
-            lesson = Lesson.objects.filter(
-                module_id=module_id
-            ).order_by('sort').first()
+            current_lesson = lesson_qs.order_by('sort').first()
+
         else:
-            lesson = Lesson.objects.filter(
-                module_id=module_id,
-                id=lesson_id
-            ).first()
+            lessons = list(lesson_qs)
+            for lesson in lessons:
+                if lesson.id == lesson_id:
+                    current_lesson = lesson
+                    break
 
-        # TODO: return 404 if lesson is None
+        if current_lesson is None:
+            print()
+            # TODO: return 404 if lesson is None
 
+        current_lesson = LessonReadOnlySerializer(instance=current_lesson).data
+        print(current_lesson)
         return render(
             request=request,
             template_name=self.template_name,
             context={
                 'module': ModuleReadOnlySerializer(instance=module).data,
-                'current_lesson': LessonReadOnlySerializer(instance=lesson).data,
+                'current_lesson': current_lesson,
             }
         )

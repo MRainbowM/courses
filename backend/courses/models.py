@@ -43,7 +43,7 @@ class Lesson(BaseTimestampedModel):
         related_name='module',
         verbose_name='Модуль',
     )
-    sort = models.IntegerField(verbose_name='Сортировка', null=True)
+    sort = models.IntegerField(verbose_name='Сортировка', null=False, blank=False)
     text = CKEditor5Field('Текст', default='', blank=True)
     video_url = models.URLField('Видео URL', blank=True)
     
