@@ -47,6 +47,8 @@ INSTALLED_APPS = [
 
     'basis',
     'courses',
+    'clients',
+    'users',
 
     'django_ckeditor_5',
 ]
