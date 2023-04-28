@@ -27,7 +27,7 @@ class ModuleAdmin(admin.ModelAdmin):
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
     list_display = ('title', 'module', 'sort')
-    fields = ('title', 'module', 'video_url', 'text', 'sort')
+    fields = ('title', 'module', 'video_url', 'sort', 'text')
     list_per_page = 40
     empty_value_display = '-'
     list_filter = ('module',)
