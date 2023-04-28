@@ -1,11 +1,16 @@
-from django.db.models import F, Window
-from django.db.models.functions import Lead, Lag
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from rest_framework.generics import RetrieveAPIView
 
-from courses.models import Course, Module, Lesson
-from courses.serializers import CourseReadOnlySerializer, ModuleReadOnlySerializer, LessonReadOnlySerializer
+from basis.settings import DEBUG
+from courses.models import Course
+from courses.serializers import (
+    CourseReadOnlySerializer,
+    ModuleReadOnlySerializer,
+    LessonReadOnlySerializer,
+    ModuleTemplateSerializer
+)
 
 
 class CourseRetrieveAPI(RetrieveAPIView):
@@ -32,45 +37,26 @@ class ModuleTemplateView(TemplateView):
     template_name = 'module.html'
 
     def get(self, request, *args, **kwargs):
-        module_id = kwargs['pk']
-        lesson_id = int(request.GET.get('lesson_id', None))
-        # TODO: validate params
-
-        module = Module.objects.get(id=module_id)
-
-        lesson_qs = Lesson.objects.filter(
-            module_id=module_id
-        ).annotate(
-            next_id=Window(
-                expression=Lead('id'),
-                order_by=F('sort').asc()
-            ),
-            prev_id=Window(
-                expression=Lag('id'),
-                order_by=F('sort').asc(),
-            ),
+        serialized = ModuleTemplateSerializer(
+            data={
+                'module': kwargs['pk'],
+                'lesson': request.GET.get('lesson_id', None)
+            }
         )
-        current_lesson = None
 
-        if lesson_id is None:
-            current_lesson = lesson_qs.order_by('sort').first()
-
+        if serialized.is_valid():
+            module = serialized.validated_data.get('module')
+            lesson = serialized.validated_data.get('lesson')
         else:
-            lessons = list(lesson_qs)
-            for lesson in lessons:
-                if lesson.id == lesson_id:
-                    current_lesson = lesson
-                    break
-
-        if current_lesson is None:
-            print()
-            # TODO: return 404 if lesson is None
+            if bool(DEBUG) is True:
+                return HttpResponseNotFound(str(serialized.errors))
+            return HttpResponseNotFound('Урок не найден')
 
         return render(
             request=request,
             template_name=self.template_name,
             context={
                 'module': ModuleReadOnlySerializer(instance=module).data,
-                'current_lesson': LessonReadOnlySerializer(instance=current_lesson).data,
+                'current_lesson': LessonReadOnlySerializer(instance=lesson).data,
             }
         )
