@@ -20,6 +20,19 @@ class Client(models.Model):
         default=True,
     )
 
+    def __str__(self):
+        name = ''
+        if self.user.first_name is not None:
+            name += self.user.first_name
+
+        if self.user.last_name is not None:
+            name += self.user.last_name
+
+        if name == '':
+            name = self.user.username
+
+        return name
+
     class Meta:
         verbose_name = 'Участник'
         verbose_name_plural = 'Участники'
